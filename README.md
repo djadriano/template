@@ -2,14 +2,46 @@
 
 ---
 
-# svelte app
+# Svelte App Template
 
-This is a project template for [Svelte](https://svelte.dev) apps. It lives at https://github.com/sveltejs/template.
+This is a project template for [Svelte](https://svelte.dev) apps. It lives at https://github.com/djadriano/template.
 
-To create a new project based on this template using [degit](https://github.com/Rich-Harris/degit):
+The template contains:
+
+* Eslint (Svelte 3 plugin)
+* Prettier
+* Commitlint
+* Commitzen
+
+## VSCode integration
+
+You'll need the ESLint extension installed.
+
+If you are using an extension that provides Svelte syntax highlighting, don't associate *.svelte files with the html language, and instead enable the ESLint extension on "svelte".
+
+Open your `settings.json` and put the code below:
+
+```json
+{
+  "editor.formatOnSave": false,
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[svelte]": {
+    "editor.formatOnSave": true
+  },
+  "eslint.validate": [
+    "javascript",
+    "svelte"
+  ]
+}
+```
+
+To create a new project based on this template using degit:
 
 ```bash
-npx degit sveltejs/template svelte-app
+npx degit djadriano/template svelte-app
 cd svelte-app
 ```
 
