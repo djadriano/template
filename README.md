@@ -12,6 +12,7 @@ The template contains:
 * Prettier
 * Commitlint
 * Commitzen
+* Sass
 
 ## VSCode integration
 
