@@ -5,6 +5,8 @@ import livereload from 'rollup-plugin-livereload';
 import autoPreprocess from 'svelte-preprocess';
 import alias from '@rollup/plugin-alias';
 import { terser } from 'rollup-plugin-terser';
+import postcss from 'rollup-plugin-postcss';
+import json from '@rollup/plugin-json';
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -30,12 +32,9 @@ export default {
 
     alias({
       entries: {
-        '@components': './src/js/components',
-        '@pages': './src/js/pages',
-        '@icons': './src/icons',
-        '@layouts': './src/js/layouts',
-        '@stores': './src/js/stores',
-        '@utils': './src/js/utils',
+        '@components': './src/components',
+        '@stores': './src/stores',
+        '@utils': './src/utils',
       },
     }),
 
@@ -50,6 +49,12 @@ export default {
         importee === 'svelte' || importee.startsWith('svelte/'),
     }),
     commonjs(),
+    json(),
+
+    postcss({
+      extract: 'global.css',
+      minimize: production,
+    }),
 
     // In dev mode, call `npm run start` once
     // the bundle has been generated
