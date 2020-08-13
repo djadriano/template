@@ -34,7 +34,7 @@ Open your `settings.json` and put the code below:
   },
   "eslint.validate": [
     "javascript",
-    "svelte"
+    "svelte",
   ]
 }
 ```
